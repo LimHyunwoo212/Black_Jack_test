@@ -14,6 +14,7 @@ public class CardDeck {
 		createSuit(Card.HEARTS);
 		createSuit(Card.CLUBS);
 		createSuit(Card.DIAMONDS);
+		System.out.println(deck.toString());
 	}
 
 	public Card newCard() {

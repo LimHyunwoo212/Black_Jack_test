@@ -133,12 +133,18 @@ public class SinglePlay extends JFrame implements ActionListener {
 	public void Setting() {
 
 		cd = new CardDeck();
-
-		getCard(true, cd.newCard());
-		getCard(true, cd.newCard());
-		getCard(false, cd.newCard());
-		getCard(false, cd.newCard());
-
+		try {
+			Thread.sleep(300);
+			getCard(true, cd.newCard());
+			//Thread.sleep(3000);
+			getCard(false, cd.newCard());
+			//Thread.sleep(3000);
+			getCard(true, cd.newCard());
+			//Thread.sleep(3000);
+			getCard(false, cd.newCard());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		PlayerJudgement();
 
 	}
