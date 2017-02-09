@@ -74,6 +74,33 @@ public class Betting extends JFrame implements ActionListener {
 			singleplay.setActive(true);
 		}
 		label.setText("잔액 : " + money);
+/*		singleplay.CardToDealer();
+		try {
+			Thread.sleep(1000);
+		}catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		singleplay.CardToPlayer();
+		try {
+			Thread.sleep(1000);
+		}catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}*/
+
+		/*for(int i = 0; i < singleplay.MAX_DEALCARD; i++){
+			singleplay.CardToPlayer();
+			try {
+				Thread.sleep(30);
+			}catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
+		}
+		try {
+			Thread.sleep(30000);
+		}catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}*/
+
 		singleplay.Setting();
 
 	}

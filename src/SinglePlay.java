@@ -4,13 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+
+
 public class SinglePlay extends JFrame implements ActionListener {
 
-	public MainPage mainpage;
-	private CardDeck cd;
+	MainPage mainpage;
+	private CardDeck cd = new CardDeck();
 
-	public Card[] player = new Card[11];
-	public Card[] dealer = new Card[11];
+	public static final int MAX_DEALCARD = 11;
+
+	public Card[] player = new Card[MAX_DEALCARD];
+	public Card[] dealer = new Card[MAX_DEALCARD];
 	public int playerCount = 0;
 	public int dealercount = 0;
 
@@ -21,8 +25,8 @@ public class SinglePlay extends JFrame implements ActionListener {
 	JPanel dealerboard = new JPanel();
 	JPanel playerboard = new JPanel();
 
-	JLabel[] dcard = new JLabel[11];
-	JLabel[] pcard = new JLabel[11];
+	JLabel[] dcard = new JLabel[MAX_DEALCARD];
+	JLabel[] pcard = new JLabel[MAX_DEALCARD];
 
 	Betting betting;
 
@@ -43,7 +47,7 @@ public class SinglePlay extends JFrame implements ActionListener {
 
 		// Player Board
 		playerboard.setLayout(null);
-		for (int i = 10; i >= 0; i--) {
+		for (int i = MAX_DEALCARD-1; i >= 0; i--) {
 			pcard[i] = new JLabel();
 			pcard[i].setBounds(20 + i * 16, 20, 71, 96);
 			playerboard.add(pcard[i]);
@@ -130,11 +134,17 @@ public class SinglePlay extends JFrame implements ActionListener {
 		}
 	}
 
+	public void CardToDealer(){
+		getCard(false, cd.newCard());
+	}
+	public void CardToPlayer(){
+		getCard(true, cd.newCard());
+	}
+
 	public void Setting() {
 
-		cd = new CardDeck();
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(300);
 			getCard(true, cd.newCard());
 			//Thread.sleep(3000);
 			getCard(false, cd.newCard());
@@ -273,20 +283,11 @@ public class SinglePlay extends JFrame implements ActionListener {
 
 		String suit = "";
 		switch (c.getSuit()) {
-			case "spades":
-				suit = "s";
-				break;
-			case "diamonds":
-				suit = "d";
-				break;
-			case "hearts":
-				suit = "h";
-				break;
-			case "clubs":
-				suit = "c";
-				break;
+			case "spades"	: suit = "s"; break;
+			case "diamonds"	: suit = "d"; break;
+			case "hearts"	: suit = "h"; break;
+			case "clubs"	: suit = "c"; break;
 		}
 		return suit + c.getCount();
 	}
-
 }
