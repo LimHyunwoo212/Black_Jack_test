@@ -4,6 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/*
+* Black Jack Project 0.1
+*
+* */
+
 public class MainPage extends JFrame implements ActionListener {
 
 	// SinglePlay
